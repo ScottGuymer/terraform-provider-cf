@@ -32,6 +32,8 @@ func TestAccDataSourceInfo_normal(t *testing.T) {
 							ref, "logging_endpoint", "wss://loggregator."+defaultSysDomain()+":443"),
 						resource.TestCheckResourceAttr(
 							ref, "doppler_endpoint", "wss://doppler."+defaultSysDomain()+":443"),
+						resource.TestCheckResourceAttr(
+							ref, "app_ssh_endpoint", "ssh."+defaultSysDomain()+":2222"),
 					),
 				},
 			},

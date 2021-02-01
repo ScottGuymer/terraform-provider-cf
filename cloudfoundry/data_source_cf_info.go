@@ -36,7 +36,15 @@ func dataSourceInfo() *schema.Resource {
 				Computed:   true,
 				Deprecated: "Not exists anymore in new cloud foundry",
 			},
-			"doppler_endpoint": &schema.Schema{
+			"app_ssh_endpoint": &schema.Schema{
+				Type:     schema.TypeString,
+				Computed: true,
+			},
+			"app_ssh_host_key_fingerprint": &schema.Schema{
+				Type:     schema.TypeString,
+				Computed: true,
+			},
+			"app_ssh_oauth_client": &schema.Schema{
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -62,6 +70,9 @@ func dataSourceInfoRead(d *schema.ResourceData, meta interface{}) error {
 	d.Set("routing_endpoint", info.Routing())
 	d.Set("logging_endpoint", strings.Replace(info.Logging(), "doppler", "loggregator", 1))
 	d.Set("doppler_endpoint", info.Logging())
+	d.Set("app_ssh_endpoint", info.AppSSHEndpoint())
+	d.Set("app_ssh_host_key_fingerprint", info.AppSSHHostKeyFingerprint())
+	d.Set("app_ssh_oauth_client", info.OAuthClient())
 
 	d.SetId("info")
 	return nil

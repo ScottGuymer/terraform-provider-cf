@@ -26,3 +26,6 @@ The following attributes are exported:
 * `routing_endpoint` - The routing endpoint URL
 * `logging_endpoint` - The logging services endpoint URL
 * `doppler_endpoint` - The doppler services endpoint URL 
+* `app_ssh_endpoint` - The app instance SSH endpoint
+* `app_ssh_host_key_fingerprint` - The fingerprint of the ssh endpoint
+* `app_ssh_oauth_client` - The ssh OAuth client
